@@ -7,10 +7,10 @@ from datetime import datetime
 def run(cmd):
     os.system(cmd)
 
-path = 'config.json'
+path = os.path.dirname(os.path.realpath(__file__))+'/config.json'
 
 if not os.path.isfile(path):
-    print("Error: Unable to locate file <"+path+">")
+    print("Error: Unable to locate file <"+path.split('/').pop()+">")
     quit()
     
 with open(path) as filePtr:    
